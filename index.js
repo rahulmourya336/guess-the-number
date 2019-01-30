@@ -55,7 +55,9 @@ const clearGeneratedNumber = _ => localStorage.clear();
 
 const startGame = _ => {
     if (localStorage.length === 0) { generateTargetNumber(10) }
-    let userGuess = document.getElementById('inputValue').value;
+    let userIput = document.getElementById('inputValue')
+    let userGuess = userIput.value;
+    userIput.value = null;
     createGuessAlert(userGuess);
 }
 
@@ -63,7 +65,7 @@ const phrase = (guessCount) => {
     console.log(guessCount);
     if (guessCount === 0 || guessCount === 1) {
         return "🔥 Excellent";
-    } else if (guessCount > 2 && guessCount <= 6) {
+    } else if (guessCount >= 2 && guessCount <= 6) {
         return "😄 Amazing";
     } else if (guessCount >= 7 && guessCount <= 10) {
         return "😊 Good";
