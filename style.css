@@ -56,6 +56,11 @@
     font-size: 1em;
   }
 }
+#creatorInfo {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
   /*
     Winning : confetti animation by codepen.io/andyobrien
