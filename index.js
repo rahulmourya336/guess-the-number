@@ -1,8 +1,21 @@
 window.onload = _ => {
     createConfetti(0, true);
+    clearGeneratedNumber();
     console.log('View Loaded');
-    generateTargetNumber(10);
+    // generateTargetNumber(10);
+    checkView();
 };
+
+const checkView = _ => {
+    if (localStorage.length === 0) {
+        $('#actionInterface').hide();
+        $('#guessList').hide();
+    } else {
+        $('#levelSelect').hide();
+        $('#actionInterface').show();
+        $('#guessList').show();
+    }
+}
 
 const createConfetti = (count, offset = false) => {
     let parent = document.getElementById("confetti");
@@ -22,23 +35,7 @@ const generateTargetNumber = (number) => {
     clearGeneratedNumber();
     let generatedNumber = Math.floor(Math.random() * number);
     localStorage.setItem('NUMBER', generatedNumber);
-    setActiveState(number);
-}
-
-setActiveState = number => {
-    if (number === 99) {
-        $('#levelMedium').addClass('active');
-        $('#levelEasy').removeClass('active');
-        $('#levelHard').removeClass('active');
-    } else if (number === 999) {
-        $('#levelMedium').removeClass('active');
-        $('#levelEasy').removeClass('active');
-        $('#levelHard').addClass('active');
-    } else {
-        $('#levelMedium').removeClass('active');
-        $('#levelEasy').addClass('active');
-        $('#levelHard').removeClass('active');
-    }
+    checkView();
 }
 
 const makeUserGuessList = (number) => {
@@ -96,10 +93,10 @@ const createGuessAlert = (userGuess) => {
         $('#levelSelect').hide();
         console.log('Winner')
     } else if (userGuess > parseInt(targetGuess)) {
-        statusDiv.innerHTML = 'Too high ... 🔺';
+        statusDiv.innerHTML = 'Guess was too high ... 🔺';
         console.log('Too High');
     } else if (userGuess < parseInt(targetGuess)) {
-        statusDiv.innerHTML = 'Too Low ... 🔻';
+        statusDiv.innerHTML = 'Guess was too Low ... 🔻';
         console.log('Too Low');
     } else {
         statusDiv.innerHTML = 'I forgot the number ... 😞';
