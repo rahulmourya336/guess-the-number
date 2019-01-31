@@ -55,9 +55,14 @@ const clearGeneratedNumber = _ => localStorage.clear();
 
 const startGame = _ => {
     if (localStorage.length === 0) { generateTargetNumber(10) }
-    let userIput = document.getElementById('inputValue')
-    let userGuess = userIput.value;
-    userIput.value = null;
+    let userInput = document.getElementById('inputValue');
+    if (userInput.value.length === 0) {
+        shakeTextBox();
+        return;
+    }
+    console.log('User input' + userInput.value.length);
+    let userGuess = userInput.value;
+    userInput.value = null;
     createGuessAlert(userGuess);
 }
 
@@ -101,6 +106,15 @@ const createGuessAlert = (userGuess) => {
         console.warn('Something went wrong!');
     }
     makeUserGuessList(userGuess);
+}
+
+const shakeTextBox = _ => {
+    console.warn("Venom");
+    document.getElementById("inputValue").className = 'form-input input_shake is-error';
+    document.getElementById('inputValue').addEventListener('animationend', (e) => {
+        setTimeout(_ => { }, 100);
+        document.getElementById("inputValue").className = 'form-input';
+    });
 }
 
 
