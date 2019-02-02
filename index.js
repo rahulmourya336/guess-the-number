@@ -10,8 +10,6 @@ window.onload = _ => {
     createConfetti(0, true);
     clearGeneratedNumber();
     console.log('View Loaded');
-    // generateTargetNumber(10);
-    // checkView();
 };
 
 const elementRender = (parentElement, childElement, classList, elementId) => {

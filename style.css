@@ -6,8 +6,6 @@
   transition: all .2s ease-out !important;
 }
 
-
-
 .empty-width {
   width: 40vw;
   margin: 0 auto;
@@ -25,7 +23,7 @@
 }
 
 .rotate-reload-icon {
-  -webkit-animation: rotation 0.5s 3s ease-out;
+  -webkit-animation: rotation 0.5s 2.5s ease-out;
 }
 
 @-webkit-keyframes rotation {
@@ -109,6 +107,7 @@
     top: 0;
     opacity: 0;
   }
+
   .confetti-piece:nth-child(1) {
     left: 7%;
     -webkit-transform: rotate(-27deg);
