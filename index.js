@@ -1,6 +1,6 @@
 /**
  * [TODO]
- *   1. Render text-box on level select.
+ *   1. Render text-box on level select. [Done]
  *   2. Write test cases for application.
  *   3. Make global scoreboard of game.
  * 
